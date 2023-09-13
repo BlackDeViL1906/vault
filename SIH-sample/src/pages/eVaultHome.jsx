@@ -11,9 +11,9 @@ const EVault = () => {
   const [fileList, setFileList] = useState([]);
   const [retrievedFile, setRetrievedFile] = useState(null);
 
-  useEffect(() => {
-    fetchFileList();
-  }, []);
+  // useEffect(() => {
+  //   fetchFileList();
+  // }, []);
 
   const handleUploadButtonClick = () => {
     fileInputRef.current.click();
@@ -41,16 +41,13 @@ const EVault = () => {
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDc2NmViYjEzYzY3RjM0NGUwMmZhRTEzN0VmMDY0NDhCNWE5MkJBZWQiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2OTM5MTkyMDAyMTksIm5hbWUiOiJ3ZWIzZVZhdWx0In0.6uqYCwC3MyhfQrXCtJUzmNoSBep_SHvreYCbecLXGUk";
     const storage = new Web3Storage({ token });
 
+    console.log(storage);
     try {
-      const response = await storage.put([file]);
-      if (response.ok) {
-        const { cid } = response;
-        console.log(cid);
-        return cid;
-      } else {
-        console.error("Error uploading to Web3.Storage:", response.statusText);
-        throw new Error("Failed to upload to Web3.Storage");
-      }
+    console.log("Uploaded", file);
+      const uploadingFile = new File([file], file.name, { type: file.type })
+      const response = await storage.put([uploadingFile]);
+      console.log(response);
+      return response;
     } catch (error) {
       console.error("Error uploading to Web3.Storage:", error);
       throw new Error("Failed to upload to Web3.Storage");
