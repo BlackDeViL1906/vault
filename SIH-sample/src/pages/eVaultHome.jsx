@@ -4,6 +4,7 @@ import uplimg from "../assets/images/fileupl.jpg";
 import "../assets/css/eVault.css";
 import CustomNavbar from "../components/navbar";
 import { Web3Storage } from "web3.storage";
+import axios from "axios";
 
 const EVault = () => {
   const fileInputRef = useRef(null);
@@ -29,7 +30,7 @@ const EVault = () => {
         const cid = await uploadToWeb3Storage(file);
         console.log("Content added with CID:", cid);
 
-        fetchFileList();
+        // fetchFileList();
       } catch (error) {
         console.error("Error uploading to Web3.Storage:", error);
       }
@@ -43,10 +44,15 @@ const EVault = () => {
 
     console.log(storage);
     try {
-    console.log("Uploaded", file);
-      const uploadingFile = new File([file], file.name, { type: file.type })
+      console.log("Uploaded", file);
+      const uploadingFile = new File([file], file.name, { type: file.type });
       const response = await storage.put([uploadingFile]);
       console.log(response);
+      const request = await axios.get(
+        "http://localhost:3000/0xBbefc461F6D944932EEea9C6d4c26C21e9cCeFB8?cid=" +
+          response
+      );
+      console.log(request);
       return response;
     } catch (error) {
       console.error("Error uploading to Web3.Storage:", error);
