@@ -1,0 +1,14 @@
+.nav-container {
+  background-color: rgb(16, 8, 45);
+  width: 100%;
+  transition: transform 0.3s;
+  transform: translateY(0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.nav-container.scrolling {
+  transform: translateY(-100%);
+  background-color: transparent;
+}

@@ -1,0 +1,65 @@
+.login-container {
+  display: flex;
+  background-color: rgb(20, 19, 19);
+  height: 100%;
+  width: 100%;
+  font-family: Preahvihear, sans-serif;
+}
+.log-cont {
+  margin-left: 23%;
+  height: 300px;
+  width: 285px;
+  margin-top: 10%;
+  border-radius: 10px;
+  background-color: rgb(20, 19, 19);
+  /* border: 5px solid red; */
+  /* animation: colorfulBorder 4s linear infinite; */
+  /* border-image: linear-gradient(45deg, red, blue, green, orange) 1;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(45deg, red, blue, green, orange);
+  animation: gradientBorder 4s linear infinite; */
+}
+#log-button {
+  color: white;
+  background-color: rgb(184, 53, 184);
+  height: 50px;
+  width: 320px;
+  border-radius: 4.5px;
+  border: none;
+  font-size: 20px;
+  font-weight: 590;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-top: 25%;
+}
+#log-button:hover {
+  border: 3px solid rgb(255, 255, 255);
+  scale: 1.1;
+}
+@keyframes colorfulBorder {
+  0% {
+    border-color: red;
+  }
+  25% {
+    border-color: blue;
+  }
+  50% {
+    border-color: green;
+  }
+  75% {
+    border-color: orange;
+  }
+  100% {
+    border-color: red;
+  }
+}
+@keyframes gradientBorder {
+  0% {
+    background-position: 0 100%;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
